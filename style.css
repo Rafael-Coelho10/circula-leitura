@@ -669,7 +669,8 @@ a:hover {
 }
 
 .hero-text-content h1 {
-    font-size: 3.8em;
+    /* A fonte terá no mínimo 2.2rem, no máximo 3.8rem, e tentará ter 5vw */
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
     line-height: 1.2;
     font-weight: 900;
     color: var(--smoky-black);
@@ -709,89 +710,6 @@ a:hover {
     transition-delay: 0.6s;
 }
 
-/* RESPONSIVIDADE PARA O NOVO LAYOUT */
-
-/* ▼▼▼ COLE ESTE NOVO BLOCO NO LUGAR ▼▼▼ */
-
-/* =================================================== */
-/* ===== RESPONSIVIDADE ADAPTATIVA (SEM EMPILHAR) ===== */
-/* =================================================== */
-
-/* Para Tablets (ex: iPads na vertical) */
-@media (max-width: 1024px) {
-    .hero-text-content h1 {
-        font-size: 3em; /* Diminui o título */
-    }
-    .hero-text-content {
-        padding-left: 3%; /* Diminui o espaçamento */
-    }
-    .hero-image-container {
-        height: 60vh; /* Diminui a altura da imagem */
-    }
-}
-
-/* Para dispositivos menores (tablets pequenos e celulares na horizontal) */
-@media (max-width: 768px) {
-    .hero-section {
-        min-height: auto; /* Altura se ajusta ao conteúdo */
-        padding-top: 100px;
-        padding-bottom: 40px;
-    }
-    .hero-container {
-        gap: 15px; /* Diminui o espaço entre as colunas */
-        padding: 0 20px;
-    }
-   .hero-image-container {
-    width: 200px;   /* LARGURA EXATA */
-    height: 200px;  /* ALTURA EXATA (para ser um quadrado perfeito) */
-    flex-shrink: 0; /* Impede que o container encolha */
-}
-    .hero-text-content {
-        flex-basis: 60%; /* Texto ocupa um pouco mais de espaço */
-        padding-left: 20px;
-    }
-    .hero-text-content h1 {
-        font-size: 2.2em; /* Título bem menor para caber */
-        margin-bottom: 15px;
-    }
-    .hero-description {
-        font-size: 1em; /* Descrição menor */
-        line-height: 1.6;
-        margin-bottom: 25px;
-    }
-    .btn-hero-cta {
-        font-size: 0.9em; /* Botão menor */
-        padding: 12px 24px;
-    }
-}
-
-/* Para Celulares (na vertical) */
-@media (max-width: 480px) {
-    .hero-section {
-        padding-top: 80px;
-        padding-bottom: 30px;
-    }
-    .hero-container {
-        padding: 0 15px;
-    }
-    .hero-image-container {
-    flex-basis: 150px; /* Largura máxima de 150px para ser 'pequena' */
-    flex-shrink: 0;
-    height: auto;
-    aspect-ratio: 1 / 1; /* Garante que seja um quadrado */
-}
-    .hero-text-content {
-        flex-basis: 65%;
-        padding-left: 15px;
-    }
-    .hero-text-content h1 {
-        font-size: 1.7em; /* Título bem compacto */
-    }
-    .hero-description {
-        font-size: 0.9em; /* Descrição bem compacta */
-        margin-bottom: 20px;
-    }
-}
 
 .about-content-new {
     display: flex;
@@ -1732,40 +1650,42 @@ ANIMAÇÃO PARA TEXTO PRINCIPAL (HERO)
 .hero-content a.scroll-animate {
   transition-delay: 0.6s;
 }
-/* ▼▼▼ COLE ESTE NOVO BLOCO NO FINAL DO SEU CSS ▼▼▼ */
+
+/* ▼▼▼ COLE ESTE NOVO BLOCO NO LUGAR DE TODAS AS REGRAS @media ANTERIORES ▼▼▼ */
 
 /* =================================================== */
-/* ===== AJUSTE FINO PARA IPHONE SE (LARGURA 375px) ===== */
+/* ===== RESPONSIVIDADE FLUIDA E UNIVERSAL ===== */
 /* =================================================== */
 
-@media (max-width: 375px) {
+@media (max-width: 820px) { /* Ponto de quebra para tablets e celulares */
+
+    .hero-section {
+        min-height: auto; /* Altura se ajusta ao conteúdo */
+        padding: 120px 20px 60px 20px; /* Espaçamento para telas menores */
+    }
 
     .hero-container {
-        gap: 12px; /* Reduz ainda mais o espaço entre a imagem e o texto */
+        flex-direction: column; /* <<< O PONTO CHAVE: empilha os itens */
+        text-align: center;
+        gap: 40px; /* Espaço entre a imagem e o texto abaixo dela */
     }
 
     .hero-image-container {
-        width: 110px;   /* Diminui o tamanho da imagem para 110px */
-        height: 110px;  /* Mantém o quadrado perfeito */
+        /* A imagem terá no mínimo 250px, no máximo 350px, e tentará ter 60% da largura da tela */
+        width: clamp(250px, 60vw, 350px);
+        aspect-ratio: 1 / 1; /* Mantém o formato quadrado que você queria */
+        height: auto;
     }
 
     .hero-text-content {
-        padding-left: 12px; /* Reduz o espaçamento à esquerda do texto */
+        padding-left: 0; /* Remove o espaçamento lateral */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens (botão) */
+        text-align: center; /* Centraliza todo o texto */
     }
 
-    .hero-text-content h1 {
-        font-size: 1.6em;   /* Reduz o tamanho do título principal */
-        line-height: 1.25;  /* Ajusta a altura da linha */
-    }
-
-    .hero-description {
-        font-size: 0.8em;    /* Reduz o texto de descrição */
-        line-height: 1.5;
-        margin-bottom: 25px;
-    }
-
-    .btn-hero-cta {
-        font-size: 0.8em;      /* Diminui um pouco o botão */
-        padding: 10px 20px;
+    .hero-text-content h1, .hero-description {
+        text-align: center; /* Garante que o texto dentro também fique centralizado */
     }
 }
