@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circula Leitura - Fomentando Sonhos Através da Leitura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0xmVBy4z/3pDtq8d1b11R+cKj5P4t/v421/Bv4Wl5vO9p/Q2l1R1O3/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero-section" id="home">
+        <div class="hero-background-svg">
+        <svg class="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="var(--ash-gray)" fill-opacity="0.5" d="M0,160L80,170C160,180,320,200,480,186.7C640,173,800,107,960,117.3C1120,128,1280,224,1360,272L1440,320L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+        </svg>
+        </div>
+        <div class="navbar-wrapper">
+            <nav class="navbar" aria-label="Navegação Principal">
+                <div class="logo">
+                    <a href="#home" aria-label="Página Inicial - Circula Leitura"><img src="./img/logo.png" alt="Logotipo Circula Leitura: Um livro aberto com crianças brincando ao redor."></a>
+                </div>
+                
+                <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menu de navegação">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </button>
+
+                <ul class="nav-links main-navigation" role="menubar">
+                     <li role="none"><a role="menuitem" href="#home">Home</a></li>
+                    <li role="none"><a role="menuitem" href="#sobre">Sobre o Projeto</a></li>
+                    <li role="none"><a role="menuitem" href="#objetivos">Nossos Objetivos</a></li>
+                    <li role="none"><a role="menuitem" href="#atividades">Atividades</a></li>
+                    <li role="none"><a role="menuitem" href="#galeria">Galeria</a></li>
+                    <li role="none"><a role="menuitem" href="#contato">Contato</a></li>
+                </ul>
+                <div class="navbar-actions">
+                    <a href="#fale-conosco" class="btn-navbar-cta">FALE CONOSCO <span class="arrow-right" aria-hidden="true">→</span></a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mobile-menu-container" id="mobile-nav" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menu de navegação móvel">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <img src="./img/logo.png" alt="Logotipo Circula Leitura">
+                </div>
+                <button class="close-button" id="close-menu" aria-label="Fechar menu de navegação"><i class="fas fa-times" aria-hidden="true"></i></button>
+            </div>
+            <ul class="mobile-nav-links" role="menubar">
+                 <li role="none"><a role="menuitem" href="#home">Home</a></li>
+                <li role="none"><a role="menuitem" href="#sobre">Sobre</a></li>
+                <li role="none"><a role="menuitem" href="#objetivos">Nossos Objetivos</a></li>
+                <li role="none"><a role="menuitem" href="#atividades">Atividades</a></li>
+                <li role="none"><a role="menuitem" href="#galeria">Galeria</a></li>
+                <li role="none"><a role="menuitem" href="#contato">Contato</a></li>
+            </ul>
+            <div class="mobile-actions">
+                <a href="#contato" class="btn-mobile-cta">FALE CONOSCO <span class="arrow-right" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+
+        <div class="overlay" id="menu-overlay" role="presentation" aria-hidden="true"></div>
+
+        <div class="hero-container">
+
+    <div class="hero-image-container">
+        <img src="./img/6.jpeg" alt="Criança sorrindo com um livro" class="hero-image">
+    </div>
+
+    <div class="hero-text-content">
+        <h1 class="scroll-animate">Agora, cada página aproxima os sonhos mais puros</h1>
+        <p class="hero-description scroll-animate">Em Santarém, no coração da Amazônia, o Circula Leitura transforma o futuro, uma história de cada vez.</p>
+        <a href="#sobre" class="btn-hero-cta scroll-animate">Conheça o Projeto</a>
+    </div>
+
+</div>
+        </div>
+</div>
+
+
+    </div>
+</section>
+        </div>
+    </header>
+    <main>
+        <section id="sobre" class="section about-section">
+            <div class="container">
+                <div class="about-content-new scroll-animate"> 
+                    <div class="about-image-new-wrapper">
+                        <img src="./img/proposito.jpeg" alt="Grupo de crianças lendo e brincando juntas, demonstrando alegria e engajamento." loading="lazy">
+                    </div>
+                    <div class="about-text-card-new">
+                        <h2 id="sobre-titulo">Nosso Propósito</h2>
+                        <p>O Projeto **Circula Leitura<strong></strong> é uma ação de promoção da leitura literária voltada a crianças residentes em comunidades rurais do município de Santarém, no estado do Pará. A iniciativa tem como objetivo fomentar a formação de leitores críticos e engajados por meio da realização de rodas de leitura, conversas literárias e ações formativas.</p>
+                        <p>Com ênfase na valorização das culturas locais e na escuta sensível das infâncias amazônicas, o projeto contribui para o fortalecimento do vínculo entre literatura, comunidade e educação, ampliando o acesso ao livro e à leitura como direito fundamental.</p>
+                        <p>O Circula funciona desde 2019, transformando vidas e construindo pontes para o conhecimento e a imaginação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objetivos" class="section goals-section">
+            <div class="container">
+                <div class="goals-content-box scroll-animate"> 
+                    <h2 id="objetivos-titulo">O que Queremos Alcançar</h2>
+                    <div class="goals-content-new">
+                        <div class="goals-image-wrapper">
+                            <img src="./img/objetivos.jpeg" alt="Crianças sorrindo em um círculo com livros, simbolizando os objetivos do projeto de promover a leitura." loading="lazy">
+                        </div>
+                        <div class="goals-text-wrapper">
+                            <dl>
+                                <div class="goal-item-new">
+                                    <dt><h3>Fomentar Leitores Críticos</h3></dt>
+                                    <dd><p>Estimular a análise e interpretação.</p></dd>
+                                </div>
+                                <div class="goal-item-new">
+                                    <dt><h3>Valorizar Culturas Locais</h3></dt>
+                                    <dd><p>Integrar narrativas amazônicas.</p></dd>
+                                </div>
+                                <div class="goal-item-new">
+                                    <dt><h3>Ampliar Acesso ao Livro</h3></dt>
+                                    <dd><p>Levar a leitura a quem precisa.</p></dd>
+                                </div>
+                                <div class="goal-item-new">
+                                    <dt><h3>Fortalecer Vínculos</h3></dt>
+                                    <dd><p>Conectar literatura e comunidade.</p></dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="atividades" class="section activities-section">
+            <div class="container">
+                <h2 id="atividades-titulo">Nossas Ações</h2>
+                <div class="activities-container-new scroll-animate"> 
+                    <div class="activity-item-new">
+                        <div class="image-wrapper image-wrapper-1">
+                            <img src="./img/atividade1.jpeg" alt="Criança com um livro aberto, lendo atentamente." loading="lazy">
+                        </div>
+                        <div class="text-card-new">
+                            <h3>Rodas de Leitura</h3>
+                            <p>Encontros dinâmicos onde histórias são compartilhadas, e a imaginação decola.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item-new">
+                        <div class="image-wrapper image-wrapper-2">
+                            <img src="./img/atividade2.jpeg" alt="Adulto contando uma história para um grupo de crianças, todas atentas." loading="lazy">
+                        </div>
+                        <div class="text-card-new">
+                            <h3>Conversas Literárias</h3>
+                            <p>Diálogos aprofundados sobre os livros, expandindo horizontes e perspectivas.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item-new">
+                        <div class="image-wrapper image-wrapper-3">
+                            <img src="./img/atividade3.jpeg" alt="Grupo de pessoas em um workshop, participando de uma atividade formativa." loading="lazy">
+                        </div>
+                        <div class="text-card-new">
+                            <h3>Ações Formativas</h3>
+                            <p>Capacitação de voluntários e educadores locais para multiplicar o impacto do projeto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="section gallery-section"> 
+            <div class="container">
+                <h2 id="galeria-titulo">Momentos do Circula</h2>
+                <div class="carousel-container scroll-animate" role="region" aria-label="Galeria de Fotos do Projeto Circula Leitura">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="carouselTrack" role="group" aria-live="polite">
+                            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="1 of 6"><img src="img/1.jpeg" alt="Criança lendo um livro sob a luz do sol em um campo aberto." loading="lazy"></div>
+                            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="2 of 6"><img src="img/2.jpeg" alt="Grupo de crianças em uma roda de leitura com voluntários, em uma comunidade rural." loading="lazy"></div>
+                            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="3 of 6"><img src="img/3.jpeg" alt="Voluntário ensinando crianças a desenhar inspirados em livros." loading="lazy"></div>
+                            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="4 of 6"><img src="img/4.jpeg" alt="Pilha de livros com crianças felizes ao fundo." loading="lazy"></div>
+                            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="5 of 6"><img src="img/5.jpeg" alt="Crianças participando de uma atividade interativa, sorrindo e aplaudindo." loading="lazy"></div>
+                            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="6 of 6"><img src="img/6.jpeg" alt="Representação da cultura local amazônica e sua conexão com a leitura." loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn-secondary">Ver Mais Fotos</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section contact-section"> 
+            <div class="container">
+                <h2 class="scroll-animate">Participe e Apoie!</h2> 
+                <p class="scroll-animate">O Circula Leitura conta com o seu apoio para continuar transformando realidades.</p> 
+                <form class="contact-form scroll-animate"> 
+                    <label for="nome" class="sr-only">Seu Nome</label>
+                    <input type="text" id="nome" placeholder="Seu Nome" required>
+                    
+                    <label for="email" class="sr-only">Seu Email</label>
+                    <input type="email" id="email" placeholder="Seu Email" required>
+                    
+                    <label for="mensagem" class="sr-only">Sua Mensagem / Como você quer ajudar?</label>
+                    <textarea id="mensagem" placeholder="Sua Mensagem / Como você quer ajudar?" rows="5"></textarea>
+                    
+                    <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                </form>
+                <div class="social-links scroll-animate"> 
+                    <a href="https://www.instagram.com/circulaleitura" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil do Circula Leitura no Instagram">Instagram</a>
+                    <a href="https://www.facebook.com/circulaleitura" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil do Circula Leitura no Facebook">Facebook</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="scroll-animate"> 
+        <div class="container">
+            <p>&copy; 2025 Circula Leitura. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

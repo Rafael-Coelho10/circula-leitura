@@ -1,0 +1,1771 @@
+/* --- VARIÁVEIS CSS (NOVA PALETA DE CORES DEFINIDA PELO USUÁRIO) --- */
+:root {
+    /* Cores da Paleta */
+    --beige-light: #E6EED6;
+    --beige-medium: #DDE2C6;
+    --ash-gray: #BBC5AA;
+    --rufous: #A72608; /* Nosso vermelho acobreado principal */
+    --smoky-black: #090C02; /* Nosso preto esfumaçado */
+
+    /* Mapeamento das variáveis gerais para a nova paleta */
+    --primary-color: var(--rufous); /* Vermelho acobreado para ações e destaque */
+    --secondary-color: var(--ash-gray); /* Cinza esverdeado para acentos suaves e alguns fundos */
+    --accent-color: var(--rufous); /* Para títulos principais, pode ser o rufous ou smoky-black */
+    
+    --neutral-light: var(--beige-light); /* Fundo geral do site (o bege mais claro) */
+    --neutral-medium: var(--beige-medium); /* Fundos secundários, cards */
+    --neutral-dark: var(--smoky-black); /* Para contraste com textos claros (footer, contato) */
+    
+    --text-primary: var(--smoky-black); /* Texto principal em preto esfumaçado */
+    --text-secondary: var(--ash-gray); /* Texto secundário em cinza esverdeado */
+    --text-on-accent: var(--beige-light); /* Texto sobre cores escuras (rufous ou smoky-black) */
+    --text-on-primary-btn: var(--white); /* Texto sobre botões rufous (branco puro para visibilidade) */
+    --white: #FFFFFF; /* Mantido para casos específicos de texto claro */
+
+    /* Fundos das Seções (agora baseados na nova paleta) */
+    --bg-hero: var(--beige-light); /* Fundo da Hero em beige claro */
+    --bg-sobre: var(--beige-medium); /* Fundo para "Sobre Nós" em beige médio */
+    --bg-objetivos: var(--ash-gray); /* Fundo para "Objetivos" em cinza esverdeado */
+    --bg-acoes: var(--beige-light); /* Fundo para "Nossas Ações" em beige claro */
+    --bg-galeria: var(--beige-medium); /* Fundo para "Galeria" em beige médio */
+    --bg-contato: var(--smoky-black); /* Fundo para "Contato" em preto esfumaçado */
+    --bg-footer: var(--smoky-black); /* Fundo para o footer em preto esfumaçado */
+
+    /* Navbar e CTA's */
+    --navbar-inner-bg: rgba(255, 255, 255, 0.95); /* Ainda branco translúcido */
+    --navbar-item-color: var(--smoky-black); /* Links da navbar em preto esfumaçado */
+    --navbar-item-hover: var(--rufous); /* Hover dos links da navbar em rufous */
+    --navbar-cta-bg: var(--rufous); /* CTA da navbar em rufous */
+    --navbar-cta-text: var(--white); /* Texto do CTA da navbar em branco */
+    --navbar-cta-hover-bg: var(--smoky-black); /* Hover CTA da navbar em preto esfumaçado */
+    --navbar-cta-hover-text: var(--white); /* Texto hover CTA da navbar em branco */
+
+    --hero-heading-color: var(--smoky-black); /* Título Hero em preto esfumaçado */
+    --hero-highlight-color: var(--rufous); /* Destaque Hero em rufous */
+    --hero-cta-bg: var(--rufous); /* Botão Hero CTA em rufous */
+    --hero-cta-text: var(--white); /* Texto botão Hero CTA em branco */
+    --hero-cta-hover-bg: var(--smoky-black); /* Hover botão Hero CTA em preto esfumaçado */
+    --hero-cta-hover-text: var(--white); /* Texto hover botão Hero CTA em branco */
+
+    /* Sombras e Bordas */
+    --border-color: rgba(0, 0, 0, 0.1); /* Sutil */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color-dark: rgba(0, 0, 0, 0.2);
+
+    /* Fontes */
+     --font-heading: "Londrina Solid", sans-serif;
+     --font-body: 'Inter', sans-serif;
+
+    /* Spacing & Sizing */
+    --border-radius-default: 12px;
+    --shadow-light: 0 4px 10px var(--shadow-color);
+    --shadow-medium: 0 8px 18px var(--shadow-color);
+    --shadow-large: 0 12px 25px var(--shadow-color-dark);
+
+    --navbar-height-desktop: 80px;
+    --navbar-height-desktop-scrolled: 70px;
+    --navbar-height-mobile: 60px;
+
+    --carousel-item-width: 300px;
+    --carousel-item-gap: 20px;
+    --carousel-animation-duration: 50s;
+}
+
+/* --- RESET BÁSICO E ESTILOS GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-primary);
+    background-color: var(--neutral-light); /* Fundo geral da página */
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --- CONTAINERS E SEÇÕES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.section {
+    padding: 90px 0;
+    position: relative;
+}
+
+/* Fundos das Seções: Cores Diferentes */
+#sobre.section {
+    background-color: var(--bg-sobre);
+}
+
+#objetivos.section {
+    background-color: var(--bg-objetivos);
+    color: var(--smoky-black); /* Texto escuro para o fundo ash-gray */
+}
+
+#atividades.section {
+    background-color: var(--bg-acoes);
+}
+
+#galeria.section {
+    background-color: var(--bg-galeria);
+}
+
+#contato.section {
+    background-color: var(--bg-contato);
+    color: var(--text-on-accent); /* Texto claro para o fundo smoky-black */
+}
+
+/* --- SCROLL REVEAL (ANIMAÇÃO AO APARECER) --- */
+.scroll-animate {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.is-visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* --- TIPOGRAFIA GERAL --- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+    margin-bottom: 0.6em;
+    line-height: 1.15;
+    color: var(--text-primary); /* Padrão para títulos */
+    letter-spacing: normal;
+    text-transform: uppercase;
+}
+
+
+.highlight-text {
+    color: var(--hero-highlight-color);
+}
+
+h2 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 1.2em;
+    position: relative;
+    color: var(--smoky-black); /* Títulos das seções em smoky black */
+}
+
+/* Pseudo-elemento para linha de destaque abaixo do H2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color); /* Linha de destaque em rufous */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* H2 em fundos escuros (objetivos e contato) */
+#objetivos.section h2,
+#contato.section h2 {
+    color: var(--text-on-accent); /* Texto claro para esses H2s */
+
+}
+
+#objetivos.section h2::after,
+#contato.section h2::after {
+    background-color: var(--secondary-color); /* Linha de destaque em ash-gray para fundos escuros */
+}
+
+
+h3 {
+    font-size: 1.6em;
+    font-weight: normal;
+    color: var(--smoky-black); /* Títulos menores em smoky black */
+    letter-spacing: normal;
+    text-transform: uppercase;
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: 1.05em;
+    font-weight: 400;
+    color: var(--text-secondary); /* Parágrafos em ash-gray */
+    line-height: 1.8;
+}
+
+/* Ajustes de texto para seções com fundo escuro */
+#objetivos.section p {
+    color: var(--smoky-black); /* Texto em smoky black para fundo ash-gray */
+}
+#contato.section p,
+#contato.section a {
+    color: var(--beige-light); /* Texto em beige light para fundo smoky-black */
+}
+
+
+/* --- LINKS (GERAL) --- */
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* Links em rufous */
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: var(--smoky-black); /* Hover dos links em smoky-black */
+}
+
+/* --- BOTÕES GERAIS --- */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: normal;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--primary-color); /* Botão primário em rufous */
+    color: var(--text-on-primary-btn); /* Texto do botão primário em branco */
+}
+
+.btn-primary:hover {
+    background-color: var(--smoky-black); /* Hover do botão primário em smoky-black */
+    color: var(--white); /* Texto do botão primário no hover em branco */
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color); /* Botão secundário em ash-gray */
+    color: var(--smoky-black); /* Texto do botão secundário em smoky-black */
+    border: 1px solid var(--smoky-black); /* Borda em smoky-black */
+}
+
+.btn-secondary:hover {
+    background-color: var(--rufous); /* Hover do botão secundário em rufous */
+    color: var(--white); /* Texto do botão secundário no hover em branco */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+    border-color: var(--rufous); /* Borda do botão secundário no hover em rufous */
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- ESTILOS PARA O BACKGROUND SVG DA HERO --- */
+.hero-background-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-background-svg svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- NAVBAR WRAPPER --- */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2vh 0;
+    z-index: 1000;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.navbar-wrapper.scrolled {
+    padding: 0.8vh 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95); /* Mantém branco translúcido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-default);
+    height: var(--navbar-height-desktop);
+    box-shadow: 0 1px 0 var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.navbar-wrapper.scrolled .navbar {
+    height: var(--navbar-height-desktop-scrolled);
+    border-radius: var(--border-radius-default);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.navbar .logo img {
+    height: 75px;
+    vertical-align: middle;
+    transition: height 0.3s ease;
+}
+
+.navbar-wrapper.scrolled .navbar .logo img {
+    height: 65px;
+}
+
+.mobile-logo img {
+    height: 65px;
+    vertical-align: middle;
+}
+
+/* --- MENU HAMBURGUER (MOBILE) --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--smoky-black);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do Hambúrguer para 'X' */
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* --- NAVEGAÇÃO PRINCIPAL (DESKTOP) --- */
+.nav-links.main-navigation {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: center;
+    margin-left: 0;
+}
+
+.nav-links.main-navigation li {
+    position: relative;
+}
+
+.nav-links.main-navigation a {
+    color: var(--navbar-item-color);
+    font-family: "Londrina Solid", sans-serif; /* Mude esta linha */
+    font-weight: 500;
+    font-size: 0.95em;
+    padding: 5px 0;
+    transition: color 0.25s ease;
+    display: block;
+}
+
+.nav-links.main-navigation a:hover {
+    color: var(--navbar-item-hover);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.btn-navbar-cta {
+    background-color: var(--navbar-cta-bg);
+    color: var(--navbar-cta-text);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: normal;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: var(--shadow-light);
+}
+
+.btn-navbar-cta:hover {
+    background-color: var(--navbar-cta-hover-bg);
+    color: var(--navbar-cta-hover-text);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.arrow-right {
+    font-weight: normal;
+    transition: transform 0.25s ease;
+}
+
+.btn-navbar-cta:hover .arrow-right {
+    transform: translateX(3px);
+}
+
+/* --- MENU MOBILE (OFF-CANVAS) --- */
+.mobile-menu-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    align-items: center;
+    text-align: center;
+    border-radius: 0 0 0 var(--border-radius-default);
+}
+
+.mobile-menu-container.is-active {
+    right: 0;
+}
+
+.mobile-menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 25px;
+    padding-top: 5px;
+}
+
+.close-button {
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--smoky-black);
+    transition: transform 0.25s ease;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.close-button:hover {
+    transform: rotate(90deg);
+}
+
+.mobile-nav-links {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex-grow: 1;
+}
+
+.mobile-nav-links li a {
+    color: var(--smoky-black);
+    font-family: "Londrina Solid", sans-serif; /* Mude esta linha */
+    font-weight: 500;
+    font-size: 1.15em;
+    padding: 10px 0;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-links li a:hover {
+    color: var(--rufous);
+}
+
+.mobile-actions {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.btn-mobile-cta {
+    background-color: var(--navbar-cta-bg);
+    color: var(--navbar-cta-text);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: normal;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: var(--shadow-light);
+}
+
+.btn-mobile-cta:hover {
+    background-color: var(--navbar-cta-hover-bg);
+    color: var(--navbar-cta-hover-text);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px var(--shadow-color);
+}
+
+/* --- OVERLAY --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Botão Hero CTA (Dentro de .hero-content) */
+.btn-hero-cta {
+    background-color: var(--hero-cta-bg);
+    color: var(--hero-cta-text);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: normal;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-medium);
+    margin-top: 40px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-hero-cta:hover {
+    background-color: var(--hero-cta-hover-bg);
+    color: var(--hero-cta-hover-text);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-large);
+}
+
+.hero-content .highlight-text {
+    display: inline-block; 
+}
+
+
+
+.btn-hero-cta {
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+/* ▼▼▼ COLE TODO ESTE BLOCO NO SEU CSS ▼▼▼ */
+
+/* =================================================== */
+/* ===== NOVO HERO - LAYOUT TELA DIVIDIDA ===== */
+/* =================================================== */
+
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--navbar-height-desktop);
+    /* background-color: var(--neutral-light); */ /* <-- LINHA REMOVIDA/COMENTADA */
+    overflow: hidden;
+    position: relative; /* Garante o posicionamento correto do SVG */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    width: 100%;
+    max-width: 1300px; /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.hero-image-container {
+    flex: 1 1 50%;
+    height: 70vh;
+    min-height: 450px;
+    /* O border-radius não é mais necessário, pois a máscara cria a borda */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* --- CÓDIGO DO EFEITO MÁSCARA --- */
+    -webkit-mask-image: url('./img/mascara.png');
+    mask-image: url('./img/mascara.png');
+
+    /* Faz a máscara cobrir todo o container */
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+
+    /* Impede que a máscara se repita */
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Essencial para preencher o quadrado sem distorcer */
+}
+
+.hero-text-content {
+    flex: 1 1 48%; /* O texto ocupa a outra metade */
+    padding-left: 5%; /* Espaçamento entre a imagem e o texto */
+    text-align: left;
+}
+
+.hero-text-content h1 {
+    font-size: 3.8em;
+    line-height: 1.2;
+    font-weight: 900;
+    color: var(--smoky-black);
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.hero-description {
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: var(--text-primary);
+    max-width: 500px; /* Limita a largura do parágrafo */
+    margin-bottom: 35px;
+}
+
+/* ANIMAÇÃO DE ENTRADA PARA O NOVO LAYOUT */
+
+.hero-text-content .scroll-animate {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease;
+}
+
+.hero-text-content.is-visible .scroll-animate,
+.hero-text-content .scroll-animate.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hero-text-content h1.scroll-animate {
+    transition-delay: 0.2s;
+}
+.hero-text-content p.scroll-animate {
+    transition-delay: 0.4s;
+}
+.hero-text-content a.scroll-animate {
+    transition-delay: 0.6s;
+}
+
+/* RESPONSIVIDADE PARA O NOVO LAYOUT */
+
+/* ▼▼▼ COLE ESTE NOVO BLOCO NO LUGAR ▼▼▼ */
+
+/* =================================================== */
+/* ===== RESPONSIVIDADE ADAPTATIVA (SEM EMPILHAR) ===== */
+/* =================================================== */
+
+/* Para Tablets (ex: iPads na vertical) */
+@media (max-width: 1024px) {
+    .hero-text-content h1 {
+        font-size: 3em; /* Diminui o título */
+    }
+    .hero-text-content {
+        padding-left: 3%; /* Diminui o espaçamento */
+    }
+    .hero-image-container {
+        height: 60vh; /* Diminui a altura da imagem */
+    }
+}
+
+/* Para dispositivos menores (tablets pequenos e celulares na horizontal) */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto; /* Altura se ajusta ao conteúdo */
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+    .hero-container {
+        gap: 15px; /* Diminui o espaço entre as colunas */
+        padding: 0 20px;
+    }
+   .hero-image-container {
+    width: 200px;   /* LARGURA EXATA */
+    height: 200px;  /* ALTURA EXATA (para ser um quadrado perfeito) */
+    flex-shrink: 0; /* Impede que o container encolha */
+}
+    .hero-text-content {
+        flex-basis: 60%; /* Texto ocupa um pouco mais de espaço */
+        padding-left: 20px;
+    }
+    .hero-text-content h1 {
+        font-size: 2.2em; /* Título bem menor para caber */
+        margin-bottom: 15px;
+    }
+    .hero-description {
+        font-size: 1em; /* Descrição menor */
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    .btn-hero-cta {
+        font-size: 0.9em; /* Botão menor */
+        padding: 12px 24px;
+    }
+}
+
+/* Para Celulares (na vertical) */
+@media (max-width: 480px) {
+    .hero-section {
+        padding-top: 80px;
+        padding-bottom: 30px;
+    }
+    .hero-container {
+        padding: 0 15px;
+    }
+    .hero-image-container {
+    flex-basis: 150px; /* Largura máxima de 150px para ser 'pequena' */
+    flex-shrink: 0;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Garante que seja um quadrado */
+}
+    .hero-text-content {
+        flex-basis: 65%;
+        padding-left: 15px;
+    }
+    .hero-text-content h1 {
+        font-size: 1.7em; /* Título bem compacto */
+    }
+    .hero-description {
+        font-size: 0.9em; /* Descrição bem compacta */
+        margin-bottom: 20px;
+    }
+}
+
+.about-content-new {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding-top: 50px;
+}
+
+.about-image-new-wrapper {
+    flex: 0 0 50%;
+    max-width: 580px;
+    height: 420px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border-radius: var(--border-radius-default);
+    transform: rotate(-3deg);
+    position: relative;
+    background-color: var(--beige-light);
+}
+
+.about-image-new-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    clip-path: polygon(10% 10%, 85% 0%, 100% 25%, 90% 75%, 75% 100%, 25% 95%, 5% 70%, 0% 30%);
+}
+
+.about-text-card-new {
+    flex: 0 0 45%;
+    background-color: var(--neutral-medium);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--shadow-medium);
+    padding: 50px;
+    margin-left: -80px;
+    z-index: 2;
+    text-align: left;
+    position: relative;
+    max-width: 650px;
+}
+
+.about-text-card-new h2 {
+    text-align: left;
+    margin-bottom: 0.8em;
+    color: var(--smoky-black);
+}
+
+.about-text-card-new h2::after {
+    margin: 12px 0 0 0;
+    background-color: var(--rufous);
+}
+
+.about-text-card-new p {
+    margin-bottom: 1.2em;
+    font-size: 1.08em;
+    color: var(--smoky-black);
+}
+
+
+/* --- ESTILIZAÇÃO DA SEÇÃO "O QUE QUEREMOS ALCANÇAR" --- */
+.goals-section {
+    padding: 90px 0;
+    background-color: var(--bg-objetivos);
+    color: var(--smoky-black);
+}
+
+/* Estilo para o wrapper que conterá o fundo contrastante */
+.goals-content-box {
+    background-color: var(--beige-light);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--shadow-medium);
+    padding: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--smoky-black);
+}
+
+/* H2 dentro do novo wrapper */
+.goals-content-box h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: var(--smoky-black);
+}
+
+.goals-content-box h2::after {
+    margin: 15px auto 0;
+    background-color: var(--rufous);
+}
+
+/* Conteúdo interno da seção de objetivos */
+.goals-content-new {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 50px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.goals-image-wrapper {
+    flex: 0 0 50%;
+    max-width: 650px;
+    height: 480px;
+    overflow: hidden;
+    border-radius: var(--border-radius-default);
+    box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: var(--beige-medium);
+    clip-path: polygon(20% 5%, 70% 5%, 80% 10%, 95% 70%, 75% 100%, 25% 95%, 5% 70%, 5% 40%);
+}
+
+.goals-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    clip-path: none;
+    border-radius: 0;
+}
+
+.goals-text-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: left;
+}
+
+/* Estilos para os itens de objetivo dentro do retângulo verde */
+.goal-item-new {
+    margin-bottom: 30px;
+    padding-left: 30px;
+    border-left: 5px solid var(--rufous);
+}
+
+.goal-item-new:last-child {
+    margin-bottom: 0;
+}
+
+.goal-item-new h3 {
+    font-size: 1.8em;
+    color: var(--smoky-black);
+    margin-bottom: 8px;
+}
+
+.goal-item-new p {
+    font-size: 1.05em;
+    color: var(--smoky-black);
+    margin-bottom: 0;
+}
+
+
+/* --- SEÇÃO "NOSSAS AÇÕES" --- */
+.activities-container-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 60px;
+}
+
+.activity-item-new {
+    width: calc(33.33% - 40px);
+    margin-bottom: 70px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-width: 320px;
+    height: 270px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: var(--beige-light);
+    border-radius: var(--border-radius-default);
+}
+
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Molduras (clip-path) - Mantidas as originais */
+.image-wrapper-1 {
+    clip-path: polygon(15% 5%, 85% 0%, 100% 25%, 90% 75%, 75% 100%, 25% 95%, 5% 70%, 0% 30%);
+}
+
+.image-wrapper-2 {
+    clip-path: polygon(15% 5%, 85% 5%, 100% 35%, 95% 85%, 10% 100%, 20% 90%, 0% 60%, 10% 20%);
+    transform: rotate(-3deg);
+}
+
+.image-wrapper-3 {
+    clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%, 10% 30%);
+    transform: rotate(5deg);
+}
+
+.text-card-new {
+    background-color: var(--beige-medium);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--shadow-light);
+    padding: 35px;
+    padding-top: 60px;
+    text-align: center;
+    margin-top: -45px;
+    position: relative;
+    z-index: 1;
+    width: 95%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-card-new h3 {
+    font-size: 1.8em;
+    color: var(--smoky-black);
+    margin-bottom: 0.6em;
+}
+
+.text-card-new p {
+    font-size: 1.05em;
+    color: var(--smoky-black);
+    margin-bottom: 0;
+}
+
+/* Efeito hover para a seção de atividades */
+.activity-item-new:hover .image-wrapper {
+    transform: translateY(-10px) scale(1.03) rotate(var(--hover-rotation, 0deg));
+    box-shadow: var(--shadow-medium);
+}
+.activity-item-new:hover .image-wrapper-1 { --hover-rotation: -8deg; }
+.activity-item-new:hover .image-wrapper-2 { --hover-rotation: -6deg; }
+.activity-item-new:hover .image-wrapper-3 { --hover-rotation: 8deg; }
+
+
+.activity-item-new:hover .text-card-new {
+    transform: translateY(-20px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+
+/* --- CARROSSEL INFINITO --- */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.carousel-wrapper {
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: var(--carousel-item-gap);
+    animation: scroll-left var(--carousel-animation-duration) linear infinite;
+    animation-play-state: running;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-item {
+    flex-shrink: 0;
+    width: var(--carousel-item-width);
+    height: 250px;
+    border-radius: var(--border-radius-default);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    background-color: var(--beige-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* IMAGENS DO CARROSSEL: SEM clip-path ou rotações - VOLTANDO AO PADRÃO */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-default);
+    clip-path: none;
+    transform: none;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Animação para o carrossel (depende do JS para o cálculo `--scroll-distance`) */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(var(--scroll-distance)); }
+}
+
+/* --- SEÇÃO DE CONTATO --- */
+.contact-section {
+    padding: 90px 0;
+    background-color: var(--bg-contato);
+    color: var(--text-on-accent);
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: var(--text-on-accent);
+}
+
+.contact-section h2::after {
+    background-color: var(--secondary-color);
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 2.5em;
+    color: var(--beige-light);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--beige-light);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1em;
+    color: var(--smoky-black);
+    background-color: var(--white);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--rufous);
+    box-shadow: 0 0 0 3px rgba(167, 38, 8, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn-primary {
+    align-self: center;
+    width: auto;
+    padding: 14px 35px;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-links a {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--beige-light);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--ash-gray);
+    transform: translateY(-2px);
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--bg-footer);
+    color: var(--text-on-accent);
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.95em;
+    font-family: var(--font-body);
+}
+
+
+/* ======================================= */
+/* RESPONSIVIDADE (MOBILE FIRST com MEDIA QUERIES) */
+/* ======================================= */
+
+/* --- Estilos para telas até 992px (Desktop -> Tablet) --- */
+@media (max-width: 992px) {
+    /* Navbar Desktop (Esconder) */
+    .nav-links.main-navigation,
+    .navbar-actions,
+    /* Mostrar o botão de hambúrguer */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Navbar principal em Mobile */
+    .navbar {
+        max-width: 95%;
+        padding: 0 20px;
+        height: var(--navbar-height-mobile);
+    }
+
+    /* Logo em mobile */
+    .navbar .logo img {
+        height: 60px;
+    }
+    .navbar-wrapper.scrolled .navbar .logo img {
+        height: 55px;
+    }
+
+    /* Hero Content em Mobile */
+    h1 {
+        font-size: 3.5em;
+        line-height: 1.15;
+        padding: 0 15px;
+    }
+    .hero-content {
+        padding-top: 15vh;
+        padding-bottom: 5vh;
+    }
+    .btn-hero-cta {
+        font-size: 1.0em;
+        padding: 15px 30px;
+    }
+
+    /* Estilos do Menu Mobile (Off-Canvas) - já estão bem definidos acima */
+    .mobile-menu-container {
+        right: -300px;
+        max-width: 280px;
+    }
+    .mobile-menu-container.is-active {
+        right: 0;
+    }
+    .mobile-menu-header {
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    .mobile-logo img {
+        height: 55px;
+    }
+    .close-button {
+        font-size: 1.6em;
+    }
+    .mobile-nav-links {
+        gap: 15px;
+    }
+    .mobile-nav-links li a {
+        font-size: 1.05em;
+    }
+    .lang-selector-mobile a {
+        font-size: 1.05em;
+    }
+    .mobile-actions {
+        margin-top: 20px;
+    }
+    
+    /* Overlay - Já está bem definido acima */
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Carrossel em Mobile */
+    .carousel-item {
+        width: 280px;
+        height: 220px;
+    }
+    /* Imagem do carrossel em mobile */
+    .carousel-item img {
+        clip-path: none;
+        transform: none;
+    }
+    
+    /* Seção "Nossas Ações" - Responsividade */
+    .activities-item-new {
+        width: calc(50% - 30px);
+    }
+
+    /* Seção "Nosso Propósito" - Responsividade */
+    .about-content-new {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-image-new-wrapper {
+        flex: none;
+        width: 90%;
+        max-width: 450px;
+        height: 350px;
+        transform: rotate(0deg);
+    }
+
+    .about-image-new-wrapper img {
+        /* Se precisar de ajustes finos no clip-path para mobile, adicione aqui */
+    }
+
+    .about-text-card-new {
+        flex: none;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -60px;
+        padding: 40px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-text-card-new h2 {
+        font-size: 2.5em;
+        text-align: center;
+    }
+    .about-text-card-new h2::after {
+        margin: 10px auto 0;
+    }
+    .about-text-card-new p {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    /* Seção de Objetivos - Responsividade */
+    .goals-section .container .goals-content-box {
+        padding: 40px;
+    }
+
+    .goals-content-new {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .goals-image-wrapper {
+        width: 90%;
+        height: 280px;
+        margin-bottom: 20px;
+        clip-path: polygon(15% 5%, 85% 0%, 100% 25%, 90% 75%, 75% 100%, 25% 95%, 5% 70%, 0% 30%);
+    }
+    .goals-image-wrapper img {
+        /* Adapta clip-path para mobile se necessário */
+    }
+
+    .goals-text-wrapper h2 {
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    .goals-text-wrapper h2::after {
+        margin: 10px auto 0;
+    }
+
+    .goal-item-new {
+        text-align: center;
+        padding-left: 0;
+        border-left: none;
+        position: relative;
+        padding-top: 15px;
+    }
+    .goal-item-new::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: var(--rufous);
+        margin: 0 auto 10px;
+        border-radius: 2px;
+    }
+    .goal-item-new h3 {
+        font-size: 1.5em;
+    }
+    .goal-item-new p {
+        font-size: 0.95em;
+    }
+}
+
+/* --- Estilos para telas até 768px (Mobile) --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8em;
+        line-height: 1.2;
+    }
+    .btn-hero-cta {
+        font-size: 0.9em;
+        padding: 12px 25px;
+    }
+    .navbar .logo img {
+        height: 50px;
+    }
+    .navbar-wrapper.scrolled .navbar .logo img {
+        height: 45px;
+    }
+    .carousel-item {
+        width: 250px;
+        height: 200px;
+    }
+
+    /* Seção "Nossas Ações" - Responsividade */
+    .activities-item-new {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .activities-container-new {
+        margin-top: 40px;
+    }
+    .text-card-new {
+        margin-top: -35px;
+        padding: 25px;
+        width: 95%;
+    }
+    .text-card-new h3 {
+        font-size: 1.5em;
+    }
+    .text-card-new p {
+        font-size: 0.9em;
+    }
+
+    /* Seção "Nosso Propósito" - Responsividade */
+    .about-image-new-wrapper {
+        height: 280px;
+    }
+    .about-text-card-new {
+        margin-top: -50px;
+        padding: 30px;
+    }
+    .about-text-card-new h2 {
+        font-size: 2.2em;
+    }
+    .about-text-card-new p {
+        font-size: 0.9em;
+    }
+
+    /* Seção de Objetivos - Responsividade */
+    .goals-section .container .goals-content-box {
+        padding: 30px;
+    }
+
+    .goals-image-wrapper {
+        height: 250px;
+    }
+    .goals-text-wrapper {
+        padding-top: 15px;
+    }
+    .goal-item-new {
+        margin-bottom: 15px;
+    }
+    .goal-item-new h3 {
+        font-size: 1.3em;
+    }
+    .goal-item-new p {
+        font-size: 0.85em;
+    }
+    .goal-item-new::before {
+        width: 30px;
+    }
+
+    /* Formulário de contato */
+    .contact-form {
+        padding: 20px;
+        gap: 15px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+    .contact-form .btn-primary {
+        padding: 12px 30px;
+    }
+    .social-links {
+        gap: 20px;
+    }
+    .social-links a {
+        font-size: 1em;
+    }
+}
+
+/* --- Estilos para telas até 480px (Mobile pequeno) --- */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2em;
+        line-height: 1.3;
+        padding: 0 5px;
+    }
+    .hero-content {
+        padding-top: 10vh;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .carousel-item {
+        width: 200px;
+        height: 160px;
+    }
+    /* Ajuste de espaçamento para o título da galeria em mobile */
+    .gallery-section h2 {
+        margin-bottom: 1em;
+        font-size: 2.2em;
+    }
+
+    /* Seção "Nosso Propósito" - Responsividade */
+    .about-image-new-wrapper {
+        width: 100%;
+        height: 220px;
+    }
+    .about-text-card-new {
+        width: 98%;
+        margin-top: -40px;
+        padding: 25px;
+    }
+    .about-text-card-new h2 {
+        font-size: 2em;
+    }
+    .about-text-card-new p {
+        font-size: 0.88em;
+    }
+
+    /* Seção de Objetivos - Responsividade */
+    .goals-image-wrapper {
+        height: 200px;
+    }
+    .goal-item-new h3 {
+        font-size: 1.1em;
+    }
+    .goal-item-new p {
+        font-size: 0.8em;
+    }
+    .goal-item-new::before {
+        width: 25px;
+    }
+
+    /* Ajustes gerais de padding em seções */
+    .section {
+        padding: 60px 0;
+    }
+    .container {
+        padding: 0 15px;
+    }
+}
+/* --- ESTILOS PARA GALERIA DE FOTOS POLAROID --- */
+.gallery-polaroid-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 25px; /* Adiciona o espaço entre a galeria e o botão */
+}
+
+/* --- ESTILOS PARA GALERIA DE FOTOS POLAROID --- */
+
+/* Ajusta cada item no container da galeria */
+/* DEPOIS */
+.polaroid-item {
+    background-color: var(--white);
+    box-shadow: var(--shadow-medium);
+    padding: 10px;
+    border-radius: var(--border-radius-default);
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 220px; 
+    height: 260px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Propriedades da Animação */
+    opacity: 0; /* Começa invisível */
+    transform: translateY(80px) rotate(15deg); /* Começa mais abaixo e inclinado */
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.6s ease, 
+                box-shadow 0.3s ease;
+}
+
+/* Redefine a altura da imagem para preencher o espaço corretamente */
+.polaroid-item img {
+    width: 100%;
+    height: 200px; /* Altura ajustada para a nova proporção */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+/* Ajusta o texto para centralizar e ter uma fonte maior */
+.polaroid-caption {
+    font-family: var(--font-body);
+    font-size: 0.95em;
+    font-weight: 500;
+    color: var(--smoky-black);
+    text-align: center; /* Garante que o texto está centralizado */
+    line-height: 1.2;
+}
+
+/* Efeito hover (opcional) */
+.polaroid-item:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: var(--shadow-large);
+}
+
+/* Rotações estáticas para os polaroids */
+.rotate-1 { transform: rotate(1deg); }
+.rotate-2 { transform: rotate(2deg); }
+.rotate-3 { transform: rotate(3deg); }
+.rotate-neg-1 { transform: rotate(-1deg); }
+.rotate-neg-2 { transform: rotate(-2deg); }
+.rotate-neg-3 { transform: rotate(-3deg); }
+
+/* Ajustes de responsividade para telas menores */
+@media (max-width: 768px) {
+    .gallery-polaroid-container {
+        gap: 15px;
+    }
+    .polaroid-item {
+        width: 150px;
+        height: 200px;
+        padding: 8px;
+    }
+    .polaroid-item img {
+        height: 130px;
+    }
+    .polaroid-caption {
+        font-size: 0.8em;
+    }
+}
+
+/* Extra small devices (less than 375px) */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .btn-hero-cta {
+        font-size: 0.8em;
+        padding: 10px 20px;
+    }
+    .mobile-menu-container {
+        max-width: 250px;
+    }
+}
+@media (max-width: 1024px) {
+    .polaroid-item {
+        width: 180px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .polaroid-item {
+        width: 150px; /* Tamanho para tablets */
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .polaroid-item {
+        width: 100%; /* Fotos ocupam a largura total em telas muito pequenas */
+        height: auto;
+    }
+}
+
+/* ▼▼▼ ADICIONE ESTE NOVO BLOCO AO FINAL DO SEU CSS ▼▼▼ */
+
+/* Estado final da animação para TODAS as polaroids quando visíveis */
+.polaroid-item.is-visible {
+    opacity: 1;
+    /* A rotação final será definida individualmente abaixo */
+}
+
+/* Posição final individual e atraso para o efeito cascata */
+.polaroid-item.is-visible:nth-child(1) {
+    transform: translateY(0) rotate(-5deg);
+    transition-delay: 0.1s;
+}
+.polaroid-item.is-visible:nth-child(2) {
+    transform: translateY(0) rotate(3deg);
+    transition-delay: 0.2s;
+}
+.polaroid-item.is-visible:nth-child(3) {
+    transform: translateY(0) rotate(-4deg);
+    transition-delay: 0.3s;
+}
+.polaroid-item.is-visible:nth-child(4) {
+    transform: translateY(0) rotate(5deg);
+    transition-delay: 0.4s;
+}
+.polaroid-item.is-visible:nth-child(5) {
+    transform: translateY(0) rotate(-2deg);
+    transition-delay: 0.5s;
+}
+
+/*
+===========================================
+ANIMAÇÃO PARA TEXTO PRINCIPAL (HERO)
+===========================================
+*/
+
+/* Define uma posição inicial um pouco mais baixa para o texto e botão */
+.hero-content .scroll-animate {
+  transform: translateY(30px);
+}
+
+/* Define o atraso para o TÍTULO (ele será o primeiro a animar) */
+.hero-content h1.scroll-animate {
+  transition-delay: 0.2s;
+}
+
+/* Define um atraso maior para o BOTÃO (ele animará depois do título) */
+.hero-content a.scroll-animate {
+  transition-delay: 0.6s;
+}
+/* ▼▼▼ COLE ESTE NOVO BLOCO NO FINAL DO SEU CSS ▼▼▼ */
+
+/* =================================================== */
+/* ===== AJUSTE FINO PARA IPHONE SE (LARGURA 375px) ===== */
+/* =================================================== */
+
+@media (max-width: 375px) {
+
+    .hero-container {
+        gap: 12px; /* Reduz ainda mais o espaço entre a imagem e o texto */
+    }
+
+    .hero-image-container {
+        width: 110px;   /* Diminui o tamanho da imagem para 110px */
+        height: 110px;  /* Mantém o quadrado perfeito */
+    }
+
+    .hero-text-content {
+        padding-left: 12px; /* Reduz o espaçamento à esquerda do texto */
+    }
+
+    .hero-text-content h1 {
+        font-size: 1.6em;   /* Reduz o tamanho do título principal */
+        line-height: 1.25;  /* Ajusta a altura da linha */
+    }
+
+    .hero-description {
+        font-size: 0.8em;    /* Reduz o texto de descrição */
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
+
+    .btn-hero-cta {
+        font-size: 0.8em;      /* Diminui um pouco o botão */
+        padding: 10px 20px;
+    }
+}
